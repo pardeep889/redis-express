@@ -6,7 +6,13 @@ client.on("error", function(error) {
   console.error(error);
 });
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.get("/", (req,res) => {
+  res.json({
+    response: "ok"
+  })
+})
 
 app.post("/stream", (req,res) => {
   let key= "qwerty";
