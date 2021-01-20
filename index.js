@@ -17,6 +17,8 @@ app.get("/", (req,res) => {
     [key]: [1]
   }
 
+  console.log(req.body)
+
   client.get(key, function(err, reply) {
       if(reply){
         const data = JSON.parse(reply);
