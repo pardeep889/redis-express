@@ -21,7 +21,7 @@ app.post("/stream", (req,res) => {
   let object = {
     [key]: [1]
   }
-  console.log(req.body);
+  console.log("Requested Data: ", req.body);
   client.get(key, function(err, reply) {
       if(reply){
         const data = JSON.parse(reply);
@@ -35,7 +35,7 @@ app.post("/stream", (req,res) => {
       }else{
         console.log("Item not found Setting new Item");
         client.setex(key, 30, JSON.stringify(object));
-        return res.send("ok")
+        return res.json("ok");
       }
   });
 })
