@@ -8,17 +8,14 @@ client.on("error", function(error) {
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get("/", (req,res) => {
+app.post("/stream", (req,res) => {
   let key= "qwerty";
   let total = 100;
   let left = 90;
-
   let object = {
     [key]: [1]
   }
-
-  console.log(req.body)
-
+  console.log(req.body);
   client.get(key, function(err, reply) {
       if(reply){
         const data = JSON.parse(reply);
