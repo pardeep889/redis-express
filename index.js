@@ -35,7 +35,9 @@ app.post("/stream", (req,res) => {
       }else{
         console.log("Item not found Setting new Item");
         client.setex(key, 30, JSON.stringify(object));
-        return res.json("ok");
+        return res.json({
+          response: "ok"
+        });
       }
   });
 })
