@@ -10,10 +10,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get("/", (req,res) => {
   let key= "qwerty";
+  let total = 100;
+  let left = 90;
+
   let object = {
     [key]: [1]
   }
-  const concurrency = 10;
 
   client.get(key, function(err, reply) {
       if(reply){
@@ -33,8 +35,4 @@ app.get("/", (req,res) => {
   });
 })
 
-app.listen(8000, () => console.log("app is running on 8000"));
-
-
-
-
+app.listen(5000, () => console.log("app is running on 5000"));
