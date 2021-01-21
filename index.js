@@ -35,6 +35,7 @@ app.post("/stream", (req,res) => {
       }else{
         console.log("Item not found Setting new Item");
         client.setex(key, 30, JSON.stringify(object));
+        res.setHeader('Content-Type', 'application/json');
         return res.json({
           response: "ok"
         });
